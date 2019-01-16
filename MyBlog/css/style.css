@@ -13,22 +13,146 @@ body {
  	background-size: cover;
 }
 
+.container {
+      max-width: 1200px;
+      text-align: center;
+      margin: 0 auto;
+      padding: 0 3rem;
+}
+ 
+@media screen and (max-width: 580px) {
+      .container {
+            padding: 0 2rem;
+      }
+}
+ 
+h1, h2, h3 {
+      font-weight: 300;
+      margin-top: 0px;
+      margin-bottom: 8px;
+}
+ 
+h1 {
+      font-size: 54px;
+      color: #FFD152;
+}
+ 
+h2 {
+      font-size: 42px;
+      color: /* #8D8273 */ #DC797B;
+}
+ 
+h3 {
+      font-size: 28px;
+      color: #8D8273;
+}
+ 
+h4 {
+      font-size: 20px;
+      color: #8D8273;
+      font-weight: 400;
+      margin-bottom: 0;
+}
+ 
+p {
+      margin: 20px 0;
+      color: #8D8273;
+      line-height: 24px;
+}
+ 
+img {
+      margin: 20px 0;
+      width: 100%;
+      border-radius: 10px;
+}
+ 
+button {
+      outline: none;
+      border: none;
+      margin: 18px 0;
+      padding: 20px 40px;
+      background: #FFD152;
+      font-family: Roboto;
+      color: #282627;
+      letter-spacing: 2px;
+      font-weight: 800;
+      text-transform: uppercase;
+}
+ 
+i {
+      font-size: 42px;
+      letter-spacing: 14px;
+}
+
+/* section */
+
+.section-hero {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      overflow-y: hidden;
+}
+
+.section-hero .container {
+      margin-top: 34vh;
+}
+ 
+.section-hero h2 {
+      color: /* #8D8273 */ #DF777C;
+}
+ 
+@media screen and (max-width: 580px) {
+      .section-hero h2 {
+            font-size: 24px;
+      }
+ 
+      .section-hero p {
+            display: none;
+      }
+}
+
+.fa-vk {
+	position: absolute;
+	right: 5px;
+	top: 10px;
+	padding: 20px;
+	color: #fff;
+	border-radius: 50%;
+	border: #fff solid 1px;
+	
+}
+
+.fa-vk:hover {
+	background: #fff;
+	color: #A25B95;
+}
+
+/*  sidebar-menu */
+
+
 .toggle-menu {
 	position: absolute;
 	padding: 15px 20px 15px 15px;
 	margin-top: 70px;
-	color: white;
+	color: #000;
 	cursor: pointer;
-	background: #648B79;
+	background: #fff;
 	z-index: 10000;
 	font-size: 2em;
-	opacity: 0;
+	opacity: 1;
+	width: 16px;
+}
+
+.toggle-menu:hover {
+	color: #fff;
+	background: #000;
 }
 
 .sidebar-menu {
 	position: fixed;
-	width: 350px;
-	margin-left: 0px;
+	width: 250px;
+	margin-left: -250px;
 	overflow: hidden;
 	height: 100vh;
 	max-height: 100vh;
@@ -108,10 +232,24 @@ body {
 }
 
 .hide-menu {
-	margin-left: -350px;
+	margin-left: 0px;
 }
 
-.opacity-one {
-	opacity: 1;
+.opacity-zero {
+	opacity: 0;
 	transition: all 0.3s ease-in-out;
+}
+
+/* education */
+
+#education {
+      background: #282627;
+      padding: 8rem 0;
+}
+ 
+.education-content {
+      display: grid;
+      grid-gap: 80px;
+      grid-template-columns: repeat(2, 1fr);
+      text-align: left;
 }
