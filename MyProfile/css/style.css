@@ -6,12 +6,26 @@
 }
 
 body {
-	 background:url(../img/hero.jpg) no-repeat center center fixed; 
+ 	 background:url(../img/hero.jpg) no-repeat center center fixed; 
  	 -webkit-background-size: cover;
  	 -moz-background-size: cover;
  	-o-background-size: cover;
  	background-size: cover;
+ 	
 }
+
+/* loader */
+
+#loader {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	z-index: 1;
+	overflow: visible;
+	background: #000 url(../img/loader.gif) no-repeat center center;
+}
+
+/* standart */
 
 .container {
       max-width: 1200px;
@@ -43,14 +57,15 @@ h2 {
 }
  
 h3 {
-      font-size: 28px;
-      color: #8D8273;
+      font-size: 42px;
+      color: #3D355F;
+      font-weight: bold;
 }
  
 h4 {
-      font-size: 20px;
-      color: #8D8273;
-      font-weight: 400;
+      font-size: 36px;
+      color: /* #007CC2 */ /* #3D355F */ #FFD152;
+      font-weight: 800;
       margin-bottom: 0;
 }
  
@@ -81,7 +96,7 @@ button {
  
 i {
       font-size: 42px;
-      letter-spacing: 14px;
+      letter-spacing: 14px; 
 }
 
 /* section */
@@ -106,6 +121,10 @@ i {
       .section-hero h2 {
             font-size: 24px;
       }
+
+      h4 {
+      	font-size: 24px;
+      }
  
       .section-hero p {
             display: none;
@@ -113,35 +132,39 @@ i {
 }
 
 .fa-vk {
-	position: absolute;
-	right: 5px;
-	top: 10px;
 	padding: 20px;
 	color: #fff;
-	border-radius: 50%;
-	border: #fff solid 1px;
-	
+	margin: 0 auto;
+}
+
+.fa-instagram {
+	padding: 20px;
+	color: #fff;
+	margin: 0 auto;
 }
 
 .fa-vk:hover {
-	background: #fff;
 	color: #A25B95;
+}
+
+.fa-instagram:hover {
+	color: #F5504F;
 }
 
 /*  sidebar-menu */
 
 
 .toggle-menu {
-	position: absolute;
+	background: #fff;
+	position: fixed;
 	padding: 15px 20px 15px 15px;
 	margin-top: 70px;
 	color: #000;
 	cursor: pointer;
-	background: #fff;
 	z-index: 10000;
 	font-size: 2em;
-	opacity: 1;
-	width: 16px;
+	opacity: 0.7;
+	width: 50px;
 }
 
 .toggle-menu:hover {
@@ -221,6 +244,10 @@ i {
 	cursor: pointer;
 }
 
+.navigation-item:hover {
+	color: #fff;
+}
+
 .boxed-item-smaller {
 	cursor: pointer;
 	transition: all 0.3s ease-in-out;
@@ -243,7 +270,7 @@ i {
 /* education */
 
 #education {
-      background: #282627;
+      background: #fff;
       padding: 8rem 0;
 }
  
@@ -252,4 +279,51 @@ i {
       grid-gap: 80px;
       grid-template-columns: repeat(2, 1fr);
       text-align: left;
+	  border-top: 1px solid #c5c5c5;
+	  padding-top: 80px;
+}
+
+/* counter */
+
+.counting-sec {
+	border: 1px double #000;
+	width: 100vw;
+	height: 15vh;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.counter {
+	padding: 20px;
+	color: #fff;
+	text-align: center;
+}
+
+.num {
+	font-size: 40px;
+	margin: 0 auto;
+	color: /* #DF777C */ #fff;
+}
+
+@media screen and (max-width: 580px) {
+	.num {
+		font-size: 30px;
+	}
+}
+
+
+
+/* work */
+.work-content {
+      display: grid;
+      grid-gap: 80px;
+      grid-template-columns: repeat(2, 1fr);
+      text-align: left;
+	  border-top: 1px solid #c5c5c5;
+	  padding-top: 80px;
+}
+
+#work {
+	 background: #fff;
+      padding: 8rem 0;
 }
