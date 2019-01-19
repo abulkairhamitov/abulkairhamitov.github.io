@@ -11,7 +11,7 @@ body {
  	 -moz-background-size: cover;
  	-o-background-size: cover;
  	background-size: cover;
- 	
+	overflow-x:hidden;  
 }
 
 /* loader */
@@ -28,10 +28,10 @@ body {
 /* standart */
 
 .container {
-      max-width: 1200px;
-      text-align: center;
-      margin: 0 auto;
-      padding: 0 3rem;
+	max-width: 1200px;
+    text-align: center;
+    margin: 0 auto; 
+    padding: 0 3rem; 
 }
  
 @media screen and (max-width: 580px) {
@@ -92,6 +92,11 @@ button {
       letter-spacing: 2px;
       font-weight: 800;
       text-transform: uppercase;
+}
+
+span {
+	font-weight: bold;
+	font-size:16px;
 }
  
 i {
@@ -267,6 +272,31 @@ i {
 	transition: all 0.3s ease-in-out;
 }
 
+/* PhotoAndBiography */
+
+.about {
+	background: #fff;
+	padding: 8rem 0;
+}
+
+.about-content {
+	display: grid;
+    grid-gap: 80px;
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+	border-top: 1px solid #c5c5c5;
+	padding-top: 80px;
+}
+
+@media screen and (max-width: 580px) {
+      .about-content {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(1, 1fr);
+            text-align: left;
+      }
+}
+
 /* education */
 
 #education {
@@ -281,6 +311,15 @@ i {
       text-align: left;
 	  border-top: 1px solid #c5c5c5;
 	  padding-top: 80px;
+}
+
+@media screen and (max-width: 580px) {
+      .education-content {
+            display: grid;
+            grid-gap: 20px;
+            grid-template-columns: repeat(1, 1fr);
+            text-align: left;
+      }
 }
 
 /* counter */
@@ -314,6 +353,10 @@ i {
 
 
 /* work */
+#work {
+	width: 100vw;
+}
+
 .work-content {
       display: grid;
       grid-gap: 80px;
