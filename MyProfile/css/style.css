@@ -11,7 +11,12 @@ body {
  	 -moz-background-size: cover;
  	-o-background-size: cover;
  	background-size: cover;
-	overflow-x:hidden;  
+ 	overflow-x: hidden;
+}
+
+html{
+    height: 100vh;
+    width: 100vw;
 }
 
 /* loader */
@@ -96,11 +101,12 @@ button {
 
 span {
 	font-weight: bold;
-	font-size:16px;
+	font-size: 26px;
+	color: #FFD152;
 }
  
 i {
-      font-size: 42px;
+      font-size: 26px;
       letter-spacing: 14px; 
 }
 
@@ -169,7 +175,7 @@ i {
 	z-index: 10000;
 	font-size: 2em;
 	opacity: 0.7;
-	width: 50px;
+	width: 40px;
 }
 
 .toggle-menu:hover {
@@ -277,6 +283,21 @@ i {
 .about {
 	background: #fff;
 	padding: 8rem 0;
+	width: 100%;
+}
+
+.about__text ul li {
+	margin: 10px;
+	font-size: 26px;
+	color: #DF777C;
+}
+
+.with-click {
+	width: 70%;
+	height: 40%;
+	margin-left: 30px;
+	font-size: 20px;
+	text-align: center;
 }
 
 .about-content {
@@ -286,6 +307,17 @@ i {
     text-align: left;
 	border-top: 1px solid #c5c5c5;
 	padding-top: 80px;
+}
+
+.click__me {
+	width: 70%;
+	text-align: center;
+	margin-left: 30px;
+	font-size: 20px;
+}
+
+.click__me:hover {
+	border: 1px solid #000;
 }
 
 @media screen and (max-width: 580px) {
@@ -302,6 +334,7 @@ i {
 #education {
       background: #fff;
       padding: 8rem 0;
+      width: 100%;
 }
  
 .education-content {
@@ -326,10 +359,10 @@ i {
 
 .counting-sec {
 	border: 1px double #000;
-	width: 100vw;
+	width: 100%;
 	height: 15vh;
 	display: flex;
-	justify-content: space-evenly;
+	justify-content: space-around;
 }
 
 .counter {
@@ -344,29 +377,96 @@ i {
 	color: /* #DF777C */ #fff;
 }
 
-@media screen and (max-width: 580px) {
-	.num {
-		font-size: 30px;
+@media screen and (max-width: 610px) {
+	.counting-sec {
+		display: block;
+		height: 550px;
 	}
 }
 
+/* quote */
 
-
-/* work */
-#work {
-	width: 100vw;
+.quote {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	min-height: 600px;
+	background: #fff;
+	padding: 10px;
 }
 
-.work-content {
-      display: grid;
-      grid-gap: 80px;
-      grid-template-columns: repeat(2, 1fr);
-      text-align: left;
-	  border-top: 1px solid #c5c5c5;
-	  padding-top: 80px;
+.quote .box {
+	 margin: 40px 40px;
+	 transition: .5s;
+	 padding: 40px;
+	 box-sizing: border-box;
+	 box-shadow: -10px 25px 50px rgba(0,0,0,.2); 
 }
 
-#work {
-	 background: #fff;
-      padding: 8rem 0;
+.quote .box:hover {
+	box-shadow: -20px 50px 100px rgba(0,0,0,.5);
+}
+
+.quote p {
+	color: #000;
+	font-family: Roboto;
+	font-size: 16px;
+}
+
+.quote .box.box1:hover {
+	background: linear-gradient(#03A9F4,#E91E63);
+	color: white;
+}
+
+.quote .box.box2:hover  {
+	background: linear-gradient(#FFC107,#19FD36);
+}
+
+.quote .box.box3:hover  {
+	background: linear-gradient(#FFC107,#E91E63);
+}
+
+
+
+
+@media screen and (max-width: 932px) {
+	.quote {
+		display: block;
+	}
+}
+
+/* contact section */
+
+.contact-section {
+	background: #494949;
+	width: 100%;
+	min-height: 600px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.contact-method {
+	background: #34495e;
+	border-radius: 20px;
+	width: 220px;
+	height: 140px;
+	margin: 10px;
+	padding: 40px;
+	color: #fff;
+	cursor: pointer;
+	transition: transform .6s;
+	border: 2px solid #fff;
+	text-align: center;
+}
+
+.contact-method i {
+	font-size: 30px;
+	/* transition: transform .6s; */
+	/* background: #34495e; */
+}
+
+.contact-method:hover {
+	transform: translateY(-40px);
 }
