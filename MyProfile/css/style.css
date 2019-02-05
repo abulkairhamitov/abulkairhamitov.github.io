@@ -349,7 +349,7 @@ i {
 }
 
 .quote .box {
-	 margin: 40px 40px;
+	 margin: 40px 0;
 	 transition: .5s;
 	 padding: 40px;
 	 box-sizing: border-box;
