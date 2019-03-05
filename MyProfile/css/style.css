@@ -28,22 +28,46 @@ a {
 	color: white;
 }
 
-
-
-.folders-box {
-	width: 20%;
-	margin-right: 40px;
-	height: 100vh;
-	background: #EBEDEF;
-	float: left;
+.about_me {
+    color: #F8F900;
 }
 
-h2 {
-	color: #808080;
-	text-align: center;
-	font-size: 16px;
+.folders_container {
+	line-height: 1.4;
 	font-family: 'Pacifico', cursive;
+	background: #1d1f20;
+	padding: 25px 35px; 
+	width: 300px;
+	/* top: calc(44vh - 40px);
+	left: calc(44vw - 125px); */
+	top: 0;
+	left: 0;
+	position: fixed;
+	box-shadow: 0 0 59px -15px black;
+	transform: scale(0) rotate(359deg);
+	transition: all 0.7s;
+	font-size: 18px;
+}
+
+.folders_container_active {
+	transform: scale(1) rotate(0deg);
+}
+
+h2 {  
+	font-family: 'Pacifico', cursive;
+	font-size: 32px;
+	color: #67D8EF;
+	position: absolute;
+	top: 10px;
+	left: 10px;
+	cursor: pointer;
+	transition: all .3s;
+	z-index: 1;
 } 
+
+h2:hover {
+    color: orange;
+}
 
 .folders-box ol li {
 	margin-left: 10px;
@@ -73,13 +97,25 @@ h2 {
 
 .folders-box ol li a {
 	position: absolute;
-	z-index: 1;
 }
 
 .folders-box ol li a:hover {
 	text-decoration: underline;
 }
 
+.code_html {
+	text-align: center;
+}
+
+.for_title {
+	font-size: 42px;
+	color: #F8F900;
+}
+
+/* .for_tag {
+	font-size: 22px;
+	color: #F92447;
+} */
 
 span {
 	color: #F92447;
@@ -221,7 +257,7 @@ h3 {
 
 @media screen and (max-width: 580px) {
 	h3 {
-		font-size: 20px;
+		font-size: 16px;
 	}
 	h1 {
 		font-size: 3.5em;
@@ -242,7 +278,6 @@ h3 {
 
 h3:hover {
 	color: orange;
-	font-family: 'Pacifico', cursive;
 }
 
 p {
