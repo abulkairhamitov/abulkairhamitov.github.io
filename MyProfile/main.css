@@ -143,7 +143,7 @@ li {
 }
 
 .menu-toggler {
-	position: fixed;
+	position: absolute;
 	top: 5rem;
 	right: 5rem;
 	width: 5rem;
@@ -280,7 +280,7 @@ li {
 .my-skills {
 	margin-top: 10rem;
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
 	grid-gap: 2.5rem;
 	text-align: center;
 }
@@ -329,8 +329,9 @@ li {
 	margin-bottom: 0;
 }
 
-.profile-img {
+.portfolio-img {
 	width: 50rem;
+	margin-right: 2rem;
 	flex: 1;
 }
 
@@ -361,7 +362,7 @@ li {
 }
 
 .portfolio-description .cta:hover {
-	color: #2f67d;
+	color: #2f627d;
 }
 /*End services*/
 
@@ -412,7 +413,7 @@ li {
 	left: -21rem;
 	text-align: right;
 	min-width: 12rem;
-	font-synthesis: 1.5rem;
+	font-size: 1.5rem;
 }
 
 .timeline .date:after {
@@ -575,6 +576,10 @@ input[type="submit"]:hover {
 }
 
 @media screen and (max-width: 600px) {
+    .nav-link {
+		font-size: 2.5rem;
+	}
+
 	.menu-toggler {
 		top: 2rem;
 		right: 2rem;
@@ -600,8 +605,9 @@ input[type="submit"]:hover {
 		flex-direction: column;
 	}
 
-	.potfolio-img {
-		margin: 0 0 rem 0;
+	.portfolio-img {
+		margin: 0 0 2rem 0;
+		width: 28rem;
 		order: 1;
 	}
 
@@ -625,5 +631,9 @@ input[type="submit"]:hover {
 	.up {
 		right: 2rem;
 	}
+}
+
+@media screen and (max-width: 515px) {
+
 }
 /*End media queries*/
