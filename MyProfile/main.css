@@ -240,6 +240,12 @@ li {
 	font-weight: 300;
 }
 
+.about-details span {
+	font-size: 16px;
+	padding-top: 100px;
+	color: #A3ADB9;
+}
+
 .profile-img {
 	flex: 1;
 	margin-right: 5rem;
@@ -258,17 +264,18 @@ li {
 	transition: color 650ms;
 }
 
-.fa-facebook-square:hover {
+.fa-vk:hover {
+	color: #4A76A8;
+}
+
+/* .fa-facebook-square:hover {
 	color: #4267b2;
 }
 
 .fa-twitter-square:hover {
 	color: #38a1f3;
 }
-
-.fa-dribbble-square:hover {
-	color: #ea4c89;
-}
+ */
 
 .fab {
 	color: white;
