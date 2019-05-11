@@ -1,0 +1,11 @@
+{
+ "short_name": "AbuPortfolio",
+ "name": "AbuPortfolio",
+ 
+
+ "start_url": "/app/",
+ "background_color": "#7ACCE5",
+ "theme_color": "#7ACCE5",
+ "orientation": "any",
+ "display": "standalone"
+}
