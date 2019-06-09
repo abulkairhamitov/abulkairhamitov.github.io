@@ -16,8 +16,9 @@ const sass = require('gulp-sass');
 ]*/
 //scss
 const cssFiles = [
-   './src/css/main.scss',
-   './src/css/style.scss'
+   './src/css/materials.scss',
+   './src/css/style.scss',
+   './src/css/advices.scss'
 ]
 
 //Порядок подключения js файлов
