@@ -1,0 +1,223 @@
+#home {
+    display: grid;
+    justify-items: center; 
+}
+.logo {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.menu {
+    display: inline-block;
+    cursor: pointer;
+    position: absolute;
+    height: 20px;
+    top: 16px;
+    right: 16px;
+    transform: translate(-50%, -50%);
+}
+
+.bar1, .bar2, .bar3 {
+    width: 30px;
+    height: 2px;
+    background-color: #39298C;
+    margin: 6px 0;
+    transition: 0.4s;
+}
+
+/* Rotate first bar */
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6x, 6px) ;
+    transform: rotate(-45deg) translate(-6px, 6px) ;
+}
+
+/* Fade out the second bar */
+.change .bar2 {
+    opacity: 0;
+}
+
+/* Rotate last bar */
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-6px, -6px) ;
+    transform: rotate(45deg) translate(-6px, -6px) ;
+}
+
+.left-tokens p.left {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    position: relative;
+    top: 13px;
+
+    color: #000000;
+}
+.white-line {
+    width: 304px;
+    height: 16px;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #39298C;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.white-line .blu-line {
+    background: #39298C;
+    border-radius: 10px;
+    width: 90px;
+    height: 16px;
+    position: relative;
+    left: -1px;
+    top: -1px;
+}
+.left-tokens p.total {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 14px;
+    /* identical to box height */
+
+    position: relative;
+    top: -8px;
+
+    color: #000000;
+
+    opacity: 0.75;
+}
+
+.my {
+    width: 304px;
+    height: 100px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 36px;
+}
+.my-balance {
+    position: relative;
+    left: -32px;
+}
+.my-balance p:first-child {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    position: relative;
+    top: 5px;
+
+    color: #000000;
+}
+.my-balance p:last-child {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    position: relative;
+    top: -16px;
+    left: 30px;
+
+    color: #000000;
+}
+.line {
+    background: #000000;
+    width: 1px;
+    height: 60px;
+    position: relative;
+    left: 3px;
+}
+.my-tokens {
+    position: relative;
+    top: 3px;
+    left: 33px;
+}
+.my-tokens p:first-child{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #000000;
+}
+.my-tokens p:last-child {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 21px;
+    position: relative;
+    top: -15px;
+    left: 15px;
+
+    color: #000000;
+}
+
+.invest {
+    margin-top: 12px;
+    width: 304px;
+    height: 40px;
+    background: #39298C;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.invest p {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21px;
+
+    color: #FFFFFF;
+}
+.history .history-text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    position: relative;
+    top: 16px;
+
+    color: #39298C;
+}
+.history-item {
+    width: 304px;
+    height: 40px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 11px;
+}
+.history-item p.money {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    position: relative;
+    left: 16px;
+
+    color: #000000;
+}
+.history-item p.data {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 16px;
+    position: relative;
+    left: -20px;
+
+    color: #000000;
+}
