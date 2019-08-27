@@ -1,0 +1,382 @@
+html, body {
+     margin: 0%;
+     padding: 0%;
+     width: 100%;
+     height: 100vh;
+     font-family: "Silk Serif" !important;
+     background: #121212;
+     cursor:url('cursor.png'), auto !important;
+}
+
+/* cursor */
+
+.back {
+     position: absolute;
+     left: 10px;
+     top: 5px;
+     z-index: 3;
+     opacity: 0.7;
+}
+
+.back:hover {
+     opacity: 1;
+}
+
+.back h2 {
+     color: #fff;
+     font-size: 16px;
+}
+
+.wrap {
+     position: absolute;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     overflow: hidden !important;
+     z-index: 2;
+}
+
+#ball {
+     width: 60px;
+     height: 60px;
+     background: none;
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     border-radius: 50%;
+     mix-blend-mode: exclusion;
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     margin: -10px 0 0 -10px;
+     pointer-events: none;
+     z-index: 2;
+}
+
+/* loading screen */
+
+.loading-screen {
+     position: absolute;
+     margin: 0%;
+     padding: 0%;
+     width: 100%;
+     height: 100vh;
+     z-index: 2;
+     background: #0f0f0f;
+}
+
+.menu ul li {
+     color: white;
+}
+
+.loading-screen .intro {
+     position: absolute;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+}
+
+.loading-screen .intro h1 {
+     font-weight: 300;
+     color: #fff;
+}
+
+.intro-title .letter {
+     display: inline-block;
+     line-height: 1em;
+}
+
+/* backgrounds */
+
+.hero--left {
+     position: absolute;
+     height: 100vh;
+     background: url(hero--left.jpg) no-repeat 100% 50%;
+     background-size: cover;
+     animation: animatedBackground1 4s cubic-bezier(0.075, 0.82, 0.165, 1);
+     animation-delay: 4.8s;     
+}
+
+@keyframes animatedBackground1 {  
+     from {
+       background-position: 50% 50%;
+     }  
+     to {
+       background-position: 100% 50%;
+     }
+}
+
+.hero--middle {
+     background: #121212;
+}
+
+.hero--right {
+     position: absolute;
+     background: url(hero--right.jpg) no-repeat 50% 50%;
+     background-size: 124%;
+     animation: animatedBackground2 5s cubic-bezier(0.19, 1, 0.22, 1);
+     animation-delay: 3.8s; 
+}
+
+@keyframes animatedBackground2 {
+     from {
+       background-size: 280%;
+     }
+     to {
+       background-size: 124%;
+     }
+}
+
+/* content */
+
+.logo {
+     position: absolute;
+     z-index: 1;
+     font-size: 16px;
+     color: rgba(255, 255, 255, 0.4);
+     line-height: 85px;
+     left: 21%;
+}
+
+.logo span {
+     color: #FFF;
+}
+
+.year {
+     position: absolute;
+     z-index: 1;
+     line-height: 85px;
+     right: 38.5%;
+     color: #fff;
+     font-size: 16px !important; 
+}
+
+.overlay-text {
+     position: absolute;
+     color: red;
+     z-index: 1;
+     font-size: 148px;
+     font-weight: 200;
+     transform: rotate(-18deg);
+     top: 26%;
+     left: 4%; 
+     mix-blend-mode: color;
+     opacity: 0;
+     animation: blinker 1s linear infinite;
+     animation-delay: 8.5s;
+
+}
+
+@keyframes blinker {   
+    
+     50% {
+       opacity: 1;
+     }
+
+}
+
+.hero-title {
+     position: absolute;
+     z-index: 2;
+     opacity: 0.7;
+     top: 66%;
+     left: 43%;
+     color: #fff;
+     font-weight: 200 !important;
+     font-size: 22px;
+     letter-spacing: 6px;
+     text-transform: uppercase;
+     transition: 0.8s;
+}
+
+.hero-title:hover {
+     opacity: 1;
+     z-index: 3;
+}
+
+.hero-title .letter {
+     display: inline-block;
+}
+
+.bar {
+     position: absolute;
+     z-index: 1;
+     bottom: 7%;
+     left: 22%;
+     width: 165px;
+     height: .5pt;
+     background: rgba(255, 255, 255, 0.2);
+}
+
+.projects {
+     position: absolute;
+     margin: 0%;
+     padding: 0%;
+     width: 100%;
+     height: 100vh;
+     background: #0f0f0f;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     z-index: 3;
+     top: -100%;
+}
+
+.container
+{
+	position: relative;
+     width: 100%;
+     height: 100%;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.container .box
+{
+     width: 300px;
+     height: 200px;
+	position: relative;
+	margin: 20px 0;
+	box-sizing: border-box;
+     overflow: hidden;
+     border-radius: 3px;
+     box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.container .box .imgBx
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: #000;
+	clip-path: circle(400px at center 100px);
+	transition: 0.5s;
+     transition-delay: 0.5s;
+     background-size: cover;
+     object-fit: cover;
+}
+.container .box .imgBx img {
+     position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+     object-fit: cover;
+}
+.container .box:hover .imgBx
+{
+	clip-path: circle(90px at center 100px);
+	transition-delay: 0s;
+}
+.container .box:hover .imgBx img
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+     object-fit: cover;
+}
+
+/* loading-screen*/
+
+.loading-screen {
+     position: absolute;
+     margin: 0%;
+     padding: 0%;
+     width: 100%;
+     height: 100vh;
+     z-index: 2;
+     background: #0f0f0f;
+}
+
+.loading-screen .intro {
+     position: absolute;
+     top: 48%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     text-align: center;
+}
+
+.loading-screen .intro h1 {
+     font-weight: 300;
+     color: #fff;
+
+}
+
+.intro-title .letter {
+     display: inline-block;
+     line-height: 1em;
+}
+
+/* responsiveness */
+
+@media(max-width: 995px) {
+     .container .box {
+          width: 200px;
+          height: 80px
+     }
+}
+
+@media(max-width: 678px) {
+
+     .hero--left {
+          background: url(hero--right.jpg) no-repeat 50% 50%;
+          background-size: cover;
+     }
+
+     .hero--middle, .hero--right {
+          display: none;
+     }
+
+     .wrap {
+          display: none;
+     }
+
+     .logo {
+          left: 0%;
+          margin-left: 24px; 
+          color: black;
+     }
+
+     .year {
+          right: 0%;
+          margin-right: 24px;
+          color: black;
+     }
+
+     .hero-title {
+          position: absolute;
+          top: 75%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          letter-spacing: 0px;
+          font-size: 16px;
+     }
+
+     .overlay-text {
+          display: none;
+     }
+
+     .bar {
+          display: none;
+     }
+
+     .container .box {
+          width: 100px;
+          height: 60px;
+     }
+}
+
+
+@media(max-width: 798px) {
+     .intro h1 {
+          font-size: 24px;
+     }
+}
+
+
+
+
