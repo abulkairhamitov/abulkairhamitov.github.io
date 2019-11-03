@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Physic Errors</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div id="app">
+        <div class="container">
+            <button @click="choise_direct" class="for_direct">Прямые измерения</button>
+            <button @click="choise_inderect" class="for_indirect">Косвенные измерения</button>
+
+            <div v-if="choise === 'direct'" id="direct_measurements">
+                <form v-on:submit.prevent="addNewMeasurement">
+                    <input
+                    type=number
+                    v-model="newMeasurementNumber"
+                    id="new-Measurement"
+                    placeholder="Введите измерение"
+                    id="input" class="Input-text" 
+                    >
+                    <p>{{ newMeasurementNumber }}</p>
+                    <button>Добавить</button>
+                </form>
+                <ul>
+                    <li
+                    is="measurement-item"
+                    v-for="(measurement, index) in measurements"
+                    v-bind:key="measurement.id"
+                    v-bind:title="measurement.title"
+                    v-on:remove="measurements.splice(index, 1)"
+                    ></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="particles.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script>
+Vue.component('measurement-item', {
+    template: '\
+    <li>\
+        {{ title }}\
+        <button v-on:click="$emit(\'remove\')">Удалить</button>\
+    </li>\
+    ',
+    props: ['title']
+})
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        measurement1: 1,
+        measurement2: 2,
+        tpn: 4.3,
+        vpn: 0.94,
+        bpn: 1.3,
+        choise: null,
+        measurements: [],
+        newMeasurementNumber: '',
+        nextMeasurementId: 0
+    },
+    methods: {
+        choise_direct: function() {
+            this.choise = 'direct'
+        },
+        choise_inderect: function() {
+            this.choise = 'inderect'
+        },
+        addNewMeasurement: function () {
+        this.measurements.push({
+            id: this.nextMeasurementId++,
+            title: this.newMeasurementNumber
+        })
+        this.newMeasurementNumber = ''
+        this.newMeasurementText = ''
+    }
+    }
+})
+</script>
+</html>
