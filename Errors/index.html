@@ -12,6 +12,7 @@
     <div id="particles-js"></div>
     <div id="app">
         <div class="container">
+
             <button @click="choise_direct" class="for_direct">Прямые измерения</button>
             <button @click="choise_inderect" class="for_indirect">Косвенные измерения</button>
 
@@ -19,70 +20,48 @@
                 <form v-on:submit.prevent="addNewMeasurement">
                     <input
                     type=number
+                    step="any"
                     v-model="newMeasurementNumber"
                     id="new-Measurement"
                     placeholder="Введите измерение"
                     id="input" class="Input-text" 
                     >
-                    <p>{{ newMeasurementNumber }}</p>
+                    <!-- <input
+                    type=number
+                    step="any"
+                    v-model="instrument_error"
+                    placeholder="Введите приборную погрешность"
+                    class="Input-text" 
+                    > -->
                     <button>Добавить</button>
+                    <button class = "computing" @click="computing_direct">Рассчитать</button>
                 </form>
                 <ul>
                     <li
-                    is="measurement-item"
-                    v-for="(measurement, index) in measurements"
-                    v-bind:key="measurement.id"
-                    v-bind:title="measurement.title"
-                    v-on:remove="measurements.splice(index, 1)"
+                    is          = "measurement-item"
+                    v-for       = "(measurement, index) in measurements"
+                    v-bind:key  = "measurement.id"
+                    v-bind:num  = "measurement.num"
+                    v-on:remove = "measurements.splice(index, 1)"
                     ></li>
                 </ul>
+                <div class="res">
+                    <p>Среднее: {{ average }}</p>
+                    <p>Размах : {{ range }}</p>
+                    <p>СКО    : {{ SKO }}</p>
+                    <p>СКОС   : {{ SKOS }}</p>
+                    <p>tpn    : {{ tpn }}</p>
+                    <p>bpn    : {{ bpn }}</p>
+                    <p>upn    : {{ upn }}</p>
+                    <p>vpn    : {{ vpn }}</p>
+                </div>
             </div>
 
         </div>
+        <p class="created">Created by Abu</p>
     </div>
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="particles.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>    
 </body>
-<script type="text/javascript" src="particles.min.js"></script>
-<script type="text/javascript" src="app.js"></script>
-<script>
-Vue.component('measurement-item', {
-    template: '\
-    <li>\
-        {{ title }}\
-        <button v-on:click="$emit(\'remove\')">Удалить</button>\
-    </li>\
-    ',
-    props: ['title']
-})
-
-var app = new Vue({
-    el: '#app',
-    data: {
-        measurement1: 1,
-        measurement2: 2,
-        tpn: 4.3,
-        vpn: 0.94,
-        bpn: 1.3,
-        choise: null,
-        measurements: [],
-        newMeasurementNumber: '',
-        nextMeasurementId: 0
-    },
-    methods: {
-        choise_direct: function() {
-            this.choise = 'direct'
-        },
-        choise_inderect: function() {
-            this.choise = 'inderect'
-        },
-        addNewMeasurement: function () {
-        this.measurements.push({
-            id: this.nextMeasurementId++,
-            title: this.newMeasurementNumber
-        })
-        this.newMeasurementNumber = ''
-        this.newMeasurementText = ''
-    }
-    }
-})
-</script>
 </html>
