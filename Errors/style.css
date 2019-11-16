@@ -56,7 +56,7 @@ body {
     line-height: var(--lineHeightMd);
 }
 #particles-js {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
@@ -73,7 +73,6 @@ body {
 }
 .container {
     position: relative;
-    top: 5%;
     width: 335.5px;
 }
 .container button {
@@ -113,13 +112,23 @@ body {
 #direct_measurements ul::-webkit-scrollbar { 
     display: none;  
 }
-#direct_measurements ul p {
+#direct_measurements ul {
+    line-height: 6px;
+    height: inherit;
+    display: flex;
     position: relative;
-    top: -78px;
-    left: -20px;
-    font-size: 32px;
-    width: 8px;
-    height: 8px;
+    left: -50px;
+}
+#direct_measurements ul p {
+    font-size: 16px;
+    display: inline-block;
+    padding-left: 30px;
+}
+#direct_measurements ul p span {
+    font-size: 28px;
+    position: relative;
+    top: 2px;
+    right: 2px;
 }
 .button_center {
     position: absolute;
@@ -127,8 +136,6 @@ body {
 }
 #direct_measurements ul li {
     font-size: 16px;
-    width: 30px;
-    height: 32px;
     list-style: none;
 }
 #direct_measurements ul p:hover {
@@ -137,13 +144,56 @@ body {
     color: #E7403D;
 }
 
+/* хром, сафари */
+.res::-webkit-scrollbar { width: 0; }
+/* ie 10+ */
+.res { -ms-overflow-style: none; }
+/* фф (свойство больше не работает, других способов тоже нет)*/
+.res { overflow: -moz-scrollbars-none; }
 .res {
-    float: right;
-    padding-right: 10px;
+    position: relative;
+    top: 30px;
     font-size: 16px;
+    height: 26vh;
+    overflow: auto;
+    font-family: inherit;
+    font-weight: inherit;
+    border: none;
+    border-radius: 0.4rem;
+    font-weight: 700;
+    color: var(--colorPrimary600);
+    padding-left: 12px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 -3px var(--colorPrimary600) inset;
+    transition: 0.2s;
+    line-height: 12px;
 }
-.res p {
-    height: 6px;
+
+/* хром, сафари */
+.measurements::-webkit-scrollbar { width: 0; }
+/* ie 10+ */
+.measurements { -ms-overflow-style: none; }
+/* фф (свойство больше не работает, других способов тоже нет)*/
+.measurements { overflow: -moz-scrollbars-none; }
+.measurements {
+    position: relative;
+    top: 15px;
+    font-size: 16px;
+    height: 15vh;
+    overflow: auto;
+    overflow-y: hidden;
+    font-family: inherit;
+    font-weight: inherit;
+    border: none;
+    border-radius: 0.4rem;
+    font-weight: 700;
+    color: var(--colorPrimary600);
+    text-decoration: none;
+    padding-left: 12px;
+    border-radius: 3px;
+    background: white;
+    box-shadow: 0 -3px var(--colorPrimary600) inset;
 }
 
 /* Стилистика input */
@@ -184,6 +234,12 @@ box-shadow: 0.2rem 0.8rem 1.6rem var(--colorPrimary600);
     }
     .container {
         width: 320px;
+    }
+    .for_direct {
+        width: 150px;
+    }
+    .for_indirect {
+        width: 150px;
     }
 }
 

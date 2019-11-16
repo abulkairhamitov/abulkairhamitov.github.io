@@ -26,34 +26,42 @@
                     placeholder="Введите измерение"
                     id="input" class="Input-text" 
                     >
-                    <!-- <input
+                    <input
                     type=number
                     step="any"
                     v-model="instrument_error"
                     placeholder="Введите приборную погрешность"
                     class="Input-text" 
-                    > -->
+                    > 
                     <button>Добавить</button>
                     <button class = "computing" @click="computing_direct">Рассчитать</button>
                 </form>
-                <ul>
-                    <li
-                    is          = "measurement-item"
-                    v-for       = "(measurement, index) in measurements"
-                    v-bind:key  = "measurement.id"
-                    v-bind:num  = "measurement.num"
-                    v-on:remove = "measurements.splice(index, 1)"
-                    ></li>
-                </ul>
+                <div class="measurements">
+                    <ul>
+                        <li
+                        is          = "measurement-item"
+                        v-for       = "(measurement, index) in measurements"
+                        v-bind:key  = "measurement.id"
+                        v-bind:num  = "measurement.num"
+                        v-on:remove = "measurements.splice(index, 1)"
+                        ></li>
+                    </ul>
+                </div>
                 <div class="res">
-                    <p>Среднее: {{ average }}</p>
-                    <p>Размах : {{ range }}</p>
-                    <p>СКО    : {{ SKO }}</p>
-                    <p>СКОС   : {{ SKOS }}</p>
-                    <p>tpn    : {{ tpn }}</p>
-                    <p>bpn    : {{ bpn }}</p>
-                    <p>upn    : {{ upn }}</p>
-                    <p>vpn    : {{ vpn }}</p>
+                    <p>Приборная погрешность = {{ new_instrument_error }}</p>
+                    <p>Среднее = {{ average }}</p>
+                    <p>R  = max(x) - min(x) = {{ range }}</p>
+                    <p>S  = {{ SKO }}</p>
+                    <p>Sk = {{ SKOS }}</p>
+                    <p v-if = "tpn!=0">tpn    : {{ tpn }}</p>
+                    <p v-if = "bpn!=0">bpn    : {{ bpn }}</p>
+                    <p v-if = "upn!=0">upn    : {{ upn }}</p>
+                    <p v-if = "vpn!=0">vpn    : {{ vpn }}</p>
+                    <p>Случайная  = tpn*Sk = {{ random_error }}</p>
+                    <p>На промахи = bpn*R  = {{ range_error }}</p>
+                    <p>Полная погрешность               = {{ complete_error }}</p>
+                    <p>Относительная погрешность        = {{ relative_error }}</p>
+                    <p>Истинное значение                = {{ average }} +- {{ complete_error }}</p>
                 </div>
             </div>
 
@@ -62,6 +70,10 @@
     </div>
     <script type="text/javascript" src="vue.js"></script>
     <script type="text/javascript" src="particles.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>    
+    <script type="text/javascript" src="app.js"></script>
+    <!-- Для формул -->
+    <script type="text/javascript" 
+        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+    </script>    
 </body>
 </html>

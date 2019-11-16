@@ -1,8 +1,8 @@
 Vue.component('measurement-item', {
     template: '\
     <li>\
-        {{ num }}\
-        <p v-on:click="$emit(\'remove\')">&times</p>\
+        \
+        <p v-on:click="$emit(\'remove\')"><span>&times</span>{{ num }}</p>\
     </li>\
     ',
     props: ['num']
@@ -11,15 +11,24 @@ Vue.component('measurement-item', {
 var app = new Vue({
     el: '#app',
     data: {
+        //Коэффициенты и погрешности
         tpn: 0,
         bpn: 0,
         upn: 0, 
         vpn: 0,
-        choise: null,
         instrument_error: '',
+        new_instrument_error: 0,
+        random_error: 0,
+        range_error: 0,
+        complete_error: 0,
+        relative_error: 0,
+
+        choise: null,
         measurements: [],
         newMeasurementNumber: '',
         nextMeasurementId: 0,
+        
+        //Рассчеты
         average: 0,
         range: 0,
         V: 0,
@@ -40,6 +49,11 @@ var app = new Vue({
                 num: +this.newMeasurementNumber
             }) 
         }
+        if(this.instrument_error!=''){
+            this.new_instrument_error = this.instrument_error
+            this.instrument_error=''
+        }
+
         this.newMeasurementNumber = ''
         },
         computing_direct: function() {
@@ -94,7 +108,7 @@ var app = new Vue({
                     this.vpn = 2.18
                     break;
                 default:
-                    alert( "Ну емае, измерений должно быть больше 1!!"  );
+                    alert( "Ну емае, измерений должно быть больше 1 и меньше 10!!"  );
             }
             //Среднее значение измерений
             this.average = 0
@@ -111,7 +125,20 @@ var app = new Vue({
                 if (this.measurements[i].num < min) min = this.measurements[i].num;
             }           
             this.range   = max - min
-            // this.V       = this.range*vpn[measurements.length] 
+            
+            //Погрешности
+            //Cчитаем случайную погрешность
+            this.random_error        = this.tpn*this.SKOS
+
+            //Для проверки по размаху выборки
+            this.range_error         = this.bpn*this.range
+
+            //Полная погрешность
+            this.complete_error      = (this.random_error**2 + this.new_instrument_error**2)**0.5
+
+            //Относительная погрешность
+            this.relative_error      = (this.complete_error/this.average)*100
+
             //СКО и СКОС
             let sum = 0
             for (let i = 0; i < this.measurements.length; i++) {
