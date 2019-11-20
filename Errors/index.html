@@ -48,20 +48,35 @@
                     </ul>
                 </div>
                 <div class="res">
+                    <p>Ваша приборная погрешность:</p>
                     <p>Приборная погрешность = {{ new_instrument_error }}</p>
-                    <p>Среднее = {{ average }}</p>
-                    <p>R  = max(x) - min(x) = {{ range }}</p>
-                    <p>S  = {{ SKO }}</p>
-                    <p>Sk = {{ SKOS }}</p>
-                    <p v-if = "tpn!=0">tpn    : {{ tpn }}</p>
-                    <p v-if = "bpn!=0">bpn    : {{ bpn }}</p>
-                    <p v-if = "upn!=0">upn    : {{ upn }}</p>
-                    <p v-if = "vpn!=0">vpn    : {{ vpn }}</p>
-                    <p>Случайная  = tpn*Sk = {{ random_error }}</p>
-                    <p>На промахи = bpn*R  = {{ range_error }}</p>
-                    <p>Полная погрешность               = {{ complete_error }}</p>
+                    <br>
+                    <p>Коэффициенты:</p>
+                    <p v-if = "tpn!=0">tP, N Стьюдента    : {{ tpn }}</p>
+                    <p v-if = "bpn!=0">bP, N для расчета доверительной погрешности    : {{ bpn }}</p>
+                    <p v-if = "upn!=0">uP, N для проверки результатов наблюдения    : {{ upn }}</p>
+                    <p v-if = "vpn!=0">vP, N для проверки грубых погрешностей    : {{ vpn }}</p>
+                    <br>
+                    <p>Среднее значение из n переменных:</p>
+                    <p><img src="img/average.gif" alt="average"> = {{ average }}</p>
+                    <br>
+                    <p>Размах выборки:</p>
+                    <p>R = {{ range }}</p>
+                    <br>
+                    <p>СКО и СКО среднего:</p>
+                    <p><img src="img/sko.gif" alt="Среднее квадратичное отклонение среднего"></p>
+                    <p><img src="img/skos.gif" alt="Отклонение среднего"> = {{ SKOS }}</p>
+                    <br>
+                    <p>Случайная погрешность по коэффициенту Стьюдента:</p>
+                    <p>Δx  = tpn*Sk = {{ random_error }}</p>
+                    <p>Случайная погрешность по размаху выборки:</p>
+                    <p>Δx = bpn*R  = {{ range_error }}</p>
+                    <br>
+                    <p>Итоговая погрешность:</p>
+                    <p>Полная погрешность              = {{ complete_error }}</p>
                     <p>Относительная погрешность        = {{ relative_error }}</p>
-                    <p>Истинное значение                = {{ average }} +- {{ complete_error }}</p>
+                    <br>
+                    <p><img src="img/result.gif" alt=""> = {{ average }} +- {{ complete_error }}</p>
                 </div>
             </div>
 
@@ -71,9 +86,5 @@
     <script type="text/javascript" src="vue.js"></script>
     <script type="text/javascript" src="particles.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
-    <!-- Для формул -->
-    <script type="text/javascript" 
-        src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-    </script>    
 </body>
 </html>

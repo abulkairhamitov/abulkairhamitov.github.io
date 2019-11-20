@@ -11,6 +11,8 @@ Vue.component('measurement-item', {
 var app = new Vue({
     el: '#app',
     data: {
+        miss: 0,
+
         //Коэффициенты и погрешности
         tpn: 0,
         bpn: 0,
@@ -116,7 +118,7 @@ var app = new Vue({
                 this.average = (+this.average + this.measurements[i].num)
             }
             this.average = this.average/this.measurements.length
-            this.average = this.average.toFixed(4)
+            this.average = this.average.toFixed(8)
             //Рамах
             var min      = this.measurements[0].num;
             var max      = min;
@@ -124,34 +126,37 @@ var app = new Vue({
                 if (this.measurements[i].num > max) max = this.measurements[i].num;
                 if (this.measurements[i].num < min) min = this.measurements[i].num;
             }           
-            this.range   = max - min
+            this.range   = (max - min).toFixed(8)
             
             //Погрешности
             //Cчитаем случайную погрешность
-            this.random_error        = this.tpn*this.SKOS
+            this.random_error        = this.tpn*this.SKOS.toFixed(8)
 
             //Для проверки по размаху выборки
-            this.range_error         = this.bpn*this.range
+            this.range_error         = (this.bpn*this.range).toFixed(8)
 
             //Полная погрешность
-            this.complete_error      = (this.random_error**2 + this.new_instrument_error**2)**0.5
+            this.complete_error      = ((this.random_error**2 + this.new_instrument_error**2)**0.5).toFixed(8)
 
             //Относительная погрешность
-            this.relative_error      = (this.complete_error/this.average)*100
+            this.relative_error      = ((this.complete_error/this.average)*100).toFixed(8)
 
             //СКО и СКОС
             let sum = 0
             for (let i = 0; i < this.measurements.length; i++) {
                 x         = (Math.pow(this.measurements[i].num - this.average, 2))
                 sum      += x
-                this.SKO  = Math.pow(sum/(this.measurements.length-1), 1/2).toFixed(4)
-                this.SKOS = Math.pow(sum/((this.measurements.length-1)*this.measurements.length), 1/2).toFixed(4)  
+                this.SKO  = Math.pow(sum/(this.measurements.length-1), 1/2).toFixed(8)
+                this.SKOS = Math.pow(sum/((this.measurements.length-1)*this.measurements.length), 1/2).toFixed(8)  
             }
-
+            //Промах
+            this.miss = 0
+            for (let i = 0; i < this.measurements.length; i++) {
+                if (Math.abs(this.measurements[i].num - this.average) > this.upn * this.range) {
+                    this.miss = 1
+                }
+            }
         }
     },
-    // computed: {
-        
-    // }
 })
 

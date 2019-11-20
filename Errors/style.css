@@ -161,13 +161,16 @@ body {
     border: none;
     border-radius: 0.4rem;
     font-weight: 700;
-    color: var(--colorPrimary600);
+    color: #000;
     padding-left: 12px;
     border-radius: 3px;
     background: white;
     box-shadow: 0 -3px var(--colorPrimary600) inset;
     transition: 0.2s;
     line-height: 12px;
+}
+.res p {
+    line-height: 20px;
 }
 
 /* хром, сафари */
