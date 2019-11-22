@@ -13,10 +13,7 @@
     <div id="app">
         <div class="container">
 
-            <button @click="choise_direct" class="for_direct">Прямые измерения</button>
-            <button @click="choise_inderect" class="for_indirect">Косвенные измерения</button>
-
-            <div v-if="choise === 'direct'" id="direct_measurements">
+            <div id="direct_measurements">
                 <form v-on:submit.prevent="addNewMeasurement">
                     <input
                     type=number
@@ -58,14 +55,14 @@
                     <p v-if = "vpn!=0">vP, N для проверки грубых погрешностей    : {{ vpn }}</p>
                     <br>
                     <p>Среднее значение из n переменных:</p>
-                    <p><img src="img/average.gif" alt="average"> = {{ average }}</p>
+                    <p><img src="img/average.gif" alt="average"> <span class="top1">= {{ average }}</span></p>
                     <br>
                     <p>Размах выборки:</p>
                     <p>R = {{ range }}</p>
                     <br>
                     <p>СКО и СКО среднего:</p>
-                    <p><img src="img/sko.gif" alt="Среднее квадратичное отклонение среднего"></p>
-                    <p><img src="img/skos.gif" alt="Отклонение среднего"> = {{ SKOS }}</p>
+                    <p><img src="img/sko.gif" alt="Среднее квадратичное отклонение среднего">  <span class="top2"> = {{ SKO }}</span></p>
+                    <p><img src="img/skos.gif" alt="Отклонение среднего">  <span class="top3"> = {{ SKOS }}</span></p>
                     <br>
                     <p>Случайная погрешность по коэффициенту Стьюдента:</p>
                     <p>Δx  = tpn*Sk = {{ random_error }}</p>
@@ -76,6 +73,7 @@
                     <p>Полная погрешность              = {{ complete_error }}</p>
                     <p>Относительная погрешность        = {{ relative_error }}</p>
                     <br>
+                    <p>Истинное значение:</p>
                     <p><img src="img/result.gif" alt=""> = {{ average }} +- {{ complete_error }}</p>
                 </div>
             </div>

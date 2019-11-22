@@ -154,7 +154,7 @@ body {
     position: relative;
     top: 30px;
     font-size: 16px;
-    height: 26vh;
+    height: 40vh;
     overflow: auto;
     font-family: inherit;
     font-weight: inherit;
@@ -172,6 +172,18 @@ body {
 .res p {
     line-height: 20px;
 }
+.res p .top1 {
+    position: relative;
+    top: -11px;
+}
+.res p .top2 {
+    position: relative;
+    top: -13px;
+}
+.res p .top3 {
+    position: relative;
+    top: -22px;
+}
 
 /* хром, сафари */
 .measurements::-webkit-scrollbar { width: 0; }
@@ -183,7 +195,7 @@ body {
     position: relative;
     top: 15px;
     font-size: 16px;
-    height: 15vh;
+    height: 10vh;
     overflow: auto;
     overflow-y: hidden;
     font-family: inherit;
