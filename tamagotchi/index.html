@@ -14,12 +14,21 @@
 		<![endif]-->
 	</head>
 	<body class="demo-husky">
-		<!-- Хвост, Правое ушко, Язык -->
-		<div id="husky-face" onclick="face()"></div>
+		<!-- 3 кнопки - входные данные приводящие к анимации 
+			7 состояний - 7 анимаций. Анимации постоянны.
+			С кликом повышается удовольствие собаки. 7 состояние - собака довольна на максимум
+		-->
 		<div class="snow"></div>
 		<div class="container">
 			<header class="codrops-header">
 				<h1>Tamagotchi</h1>
+				<div class="bg">
+					<div class="centerer">
+						<div class="button" onclick="data_in1()">"Ути-пути!"</div>
+						<div class="button" onclick="data_in2()">Погладить</div>
+						<div class="button" onclick="data_in3()">"Хороший мальчик!"</div>
+					</div>
+				</div>
 			</header>
 			<div class="content content--husky">
 				<div class="mountain"></div>
@@ -36,9 +45,9 @@
 								<div class="husky-eye"></div>
 								<div class="husky-eye"></div>
 								<div class="husky-nose"></div>
-								<div class="husky-mouth animate_face">
+								<div class="husky-mouth">
 									<div class="husky-lips"></div>
-									<div class="husky-tongue animate_face"></div>
+									<div class="husky-tongue"></div>
 								</div>
 							</div>
 						</div>
