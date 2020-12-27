@@ -246,8 +246,14 @@ a:hover, a:focus {
 		/* noise image */
 
 	}
-
-
+#counter {
+	position: absolute;
+	bottom: 0;
+	right: 0.2em;
+	text-emphasis: right;
+	font-size: 7em;
+	color: #DE6465;
+}
 
 @media screen and (max-width: 40em) {
 	.codrops-header h1 {
@@ -256,4 +262,7 @@ a:hover, a:focus {
 	.info {
 		display: block;
 	}
+	#counter {
+		font-size: 4em;
+	} 
 }
